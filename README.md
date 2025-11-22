@@ -77,19 +77,11 @@ make
 ./Task_For_NTEC
 ```
 
-The server will start on port **8000**.
-
 ### Running Tests
 
 After building, run:
 ```bash
 ./Task_For_NTEC_tests
-```
-
-Or via CMake:
-```bash
-cd build
-ctest
 ```
 
 ## API Endpoints
