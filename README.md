@@ -108,7 +108,6 @@ http://localhost:8000
 | `GET`    | `/contacts`      | Get all contacts     |
 | `PUT`    | `/contacts/{id}` | Update contact       |
 | `DELETE` | `/contacts/{id}` | Delete contact       |
-|----------|------------------|----------------------|
 
 ### Data Model (ContactDto)
 
