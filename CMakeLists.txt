@@ -19,6 +19,9 @@ FetchContent_MakeAvailable(oatpp)
 message(STATUS "Using oatpp from FetchContent")
 set(OATPP_TEST_LIB oatpp-test)
 
+# Tell cmake where oatpp was fetched
+set(oatpp_DIR "${oatpp_SOURCE_DIR}/cmake")
+
 # Always fetch oatpp-swagger (it's not in Homebrew)
 include(FetchContent)
 FetchContent_Declare(
