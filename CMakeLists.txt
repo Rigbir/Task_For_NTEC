@@ -19,16 +19,20 @@ FetchContent_MakeAvailable(oatpp)
 message(STATUS "Using oatpp from FetchContent")
 set(OATPP_TEST_LIB oatpp-test)
 
-# Tell cmake where oatpp was fetched
-set(oatpp_DIR "${oatpp_SOURCE_DIR}/cmake")
-
 # Always fetch oatpp-swagger (it's not in Homebrew)
+# Configure oatpp-swagger to use CUSTOM location mode to work with FetchContent
 include(FetchContent)
 FetchContent_Declare(
     oatpp-swagger
     GIT_REPOSITORY https://github.com/oatpp/oatpp-swagger.git
     GIT_TAG 1.3.0
 )
+
+# Set oatpp-swagger to use CUSTOM mode and provide paths to oatpp from FetchContent
+set(OATPP_MODULES_LOCATION "CUSTOM" CACHE STRING "Location where to find oatpp modules")
+set(OATPP_DIR_SRC "${oatpp_SOURCE_DIR}/src" CACHE PATH "Path to oatpp module directory (sources)")
+set(OATPP_DIR_LIB "${oatpp_BINARY_DIR}/src" CACHE PATH "Path to directory with liboatpp")
+
 FetchContent_MakeAvailable(oatpp-swagger)
 
 # Add executable
